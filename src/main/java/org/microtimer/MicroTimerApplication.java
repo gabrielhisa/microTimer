@@ -1,4 +1,4 @@
-package org.microtimer.microtimer;
+package org.microtimer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

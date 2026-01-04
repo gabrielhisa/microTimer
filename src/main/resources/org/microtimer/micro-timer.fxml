@@ -7,7 +7,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" centerShape="false" prefHeight="42.0" prefWidth="191.0" scaleShape="false" style="-fx-background-color: #2c2c2c; -fx-border-color: #666666; -fx-border-width: 1; -fx-border-radius: 0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" centerShape="false" prefHeight="42.0" prefWidth="191.0" scaleShape="false"
+            style="-fx-background-color: #2c2c2c; -fx-border-color: #666666; -fx-border-width: 1; -fx-border-radius: 0;"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.microtimer.MicroTimerController"
+            onMousePressed="#handleMousePressed" onMouseDragged="#handleMouseDragged">
 
     <!-- Timer Display -->
     <HBox alignment="CENTER" layoutX="6.0" layoutY="3.0" spacing="2">
@@ -32,12 +36,7 @@
 
     <!-- Control Buttons -->
     <HBox alignment="CENTER" layoutX="122.0" layoutY="8.0" spacing="5.0">
-        <Button fx:id="startPauseButton" prefHeight="25.0" prefWidth="28.0" text="▶" />
-        <Button fx:id="resetButton" prefHeight="25.0" prefWidth="28.0">
-            <graphic>
-                <Rectangle height="12" style="-fx-fill: white;" width="12" />
-            </graphic>
-        </Button>
-
+        <Button fx:id="startPauseButton" prefHeight="25.0" prefWidth="28.0" text="▶" onAction="#startButton"/>
+        <Button fx:id="resetButton" prefHeight="25.0" prefWidth="28.0" text="■"/>
     </HBox>
 </AnchorPane>

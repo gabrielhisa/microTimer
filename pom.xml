@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>org.microtimer.microtimer/org.microtimer.microtimer.MicroTimerApplication</mainClass>
+              <mainClass>org.microtimer.microtimer/org.microtimer.MicroTimerApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
