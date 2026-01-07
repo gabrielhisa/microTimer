@@ -15,7 +15,6 @@ public class MicroTimerApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setAlwaysOnTop(true);
-        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }

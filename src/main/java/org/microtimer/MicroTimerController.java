@@ -18,6 +18,7 @@ public class MicroTimerController {
     private Boolean isRunning = false;
     private double dragOffsetX, dragOffsetY;
 
+    private int milliseconds = 0;
     private int seconds = 0;
     private int minutes = 0;
     private int hours = 0;
@@ -32,14 +33,20 @@ public class MicroTimerController {
     private Label secondLabel;
 
     @FXML
+    private Label milliLabel;
+
+    @FXML
     private Button startPauseButton;
+
+    @FXML
+    private Button resetButton;
 
     @FXML
     private AnchorPane mainPane;
 
     @FXML
     private void initialize(){
-        KeyFrame timeFrame = new KeyFrame(Duration.seconds(1), event -> {
+        KeyFrame timeFrame = new KeyFrame(Duration.millis(10), event -> {
             timePasser();
             updateLabels();
 
@@ -49,7 +56,7 @@ public class MicroTimerController {
     }
 
     @FXML
-    private void startButton(){
+    private void startTimer(){
         if (isRunning == false){
             timer.play();
             startPauseButton.setText("⏸");
@@ -61,20 +68,32 @@ public class MicroTimerController {
         }
     }
 
-
-
-
+    @FXML
+    private void resetTimer(){
+        timer.stop();
+        startPauseButton.setText("▶");
+        milliseconds = 0;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        isRunning = false;
+        updateLabels();
+    }
 
     private void timePasser(){
-        seconds++;
+        milliseconds++;
 
-        if (seconds >= 60){
-            seconds = 0;
-            minutes++;
+        if (milliseconds >= 100){
+            milliseconds=0;
+            seconds++;
+            if (seconds >= 60){
+                seconds = 0;
+                minutes++;
 
-            if (minutes >= 60){
-                minutes = 0;
-                hours++;
+                if (minutes >= 60){
+                    minutes = 0;
+                    hours++;
+                }
             }
         }
     }
@@ -88,11 +107,13 @@ public class MicroTimerController {
     }
 
     private void updateLabels(){
+        milliLabel.setText(formatTime(milliseconds));
         secondLabel.setText(formatTime(seconds));
         minuteLabel.setText(formatTime(minutes));
         hourLabel.setText(formatTime(hours));
     }
 
+    // Moving the panel around
     @FXML
     private void handleMousePressed(MouseEvent event) {
         Stage stage = (Stage) mainPane.getScene().getWindow();
@@ -106,9 +127,6 @@ public class MicroTimerController {
         stage.setX(event.getScreenX() - dragOffsetX);
         stage.setY(event.getScreenY() - dragOffsetY);
     }
-
-
-
 
 
 
