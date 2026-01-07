@@ -2,6 +2,10 @@
 
 A simple JavaFX project for a minimalistic, lightweight timer. Useful for gamind, studying or just tracking activities.
 
+## UI
+
+<img width="244" height="49" alt="image" src="https://github.com/user-attachments/assets/2b4dc2c5-3105-4513-a5cd-de47e5424c6d" />
+
 ## Elements
 
 This is a minimalistic timer application that stays on top of other windows while providing accurate time tracking. Techs used:
